@@ -1,0 +1,23 @@
+{
+  "name": "radarapplication",
+  "version": "1.0.0",
+  "description": "Interface for Radar",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Clogema/radarApplication.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Clogema/radarApplication/issues"
+  },
+  "homepage": "https://github.com/Clogema/radarApplication#readme",
+  "dependencies": {
+    "chart.js": "^2.7.3",
+    "express": "^4.16.4"
+  }
+}
