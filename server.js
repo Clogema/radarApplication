@@ -1,19 +1,42 @@
-var express = require('express');
-var app = express();
+// BASE SETUP
+// =============================================================================
 
-app.get('/name', function (req, res) {
+// call the packages we need
+var express    = require('express');        // call express
+var app        = express();                 // define our app using express
+var bodyParser = require('body-parser');
+
+var test1 = new Test();
+
+// configure app to use bodyParser()
+// this will let us get the data from a POST
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+var port = process.env.PORT || 8080;        // set our port
+
+// ROUTES FOR OUR API
+// =============================================================================
+var router = express.Router();              // get an instance of the express Router
+
+// test route to make sure everything is working (accessed at GET http://localhost:8080/api)
+router.get('/', function(req, res) {
+    res.json({ message: 'hooray! welcome to our api!' });   
+});
+
+// more routes for our API will happen here
+router.get('/graph', function (req, res) {
    // Prepare output in JSON format
-   response = {
-      first_name:"Lisa",
-      last_name:"Anthonioz"
-   };
-   console.log(response);
-   res.end(response);
+   rep = test1;
+   console.log(rep);
+   res.json(rep);
 })
 
-var server = app.listen(8081, function () {
-   var host = server.address().address
-   var port = server.address().port
-   
-   console.log("Example app listening at http://%s:%s", host, port)
-})
+// REGISTER OUR ROUTES -------------------------------
+// all of our routes will be prefixed with /api
+app.use('/api', router);
+
+// START THE SERVER
+// =============================================================================
+app.listen(port);
+console.log('Magic happens on port ' + port);
