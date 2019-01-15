@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Radar Formulaire</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="./vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="./vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="./dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="./vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="formulaire.html">Radar Configuration</a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-right">
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li class="sidebar-search">
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                            </div>
+                            <!-- /input-group -->
+                        </li>
+                        <li>
+                            <a href="formulaire.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="flot.html">Flot Charts</a>
+                                </li>
+                                <li>
+                                    <a href="morris.html">Morris.js Charts</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="formulaire.html"><i class="fa fa-table fa-fw"></i> Tables</a>
+                        </li>
+                        <li>
+                            <a href="formulaire.html"><i class="fa fa-edit fa-fw"></i> Forms</a>
+                        </li>                        
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Configuration Commands :</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Each following command is mandatory.
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <form role="form">
+                                    <!--
+                                        <h2> Configuration Commands :</h2>
+                                    -->
+                                        <h3>dfeDataOutputMode :</h3>
+                                        <div class="form-group">
+                                            <label>&lt;modeType&gt;</label>
+                                            <input class="form-control" value="1">
+                                            <p class="help-block">only 1 for 14xx; only 2 or 3 for 16xx.</p>
+                                        </div>
+
+                                        <h3>channelCfg :</h3>
+                                        <div class="form-group">
+                                            <label>&lt;rxChannelEn&gt;</label>
+                                            <input class="form-control" value="15">
+                                            <p class="help-block">15 : for 4 antennas.</p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>&lt;txChannelEn&gt;</label>
+                                            <input class="form-control" value="5">
+                                            <p class="help-block">0x5 : mask for 2 azimuth antennas; 0x7 : mask for azimuth + elevation antennas.</p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>&lt;cascading&gt;</label>
+                                            <input class="form-control" value="0">
+                                            <p class="help-block">Not applicable, set to 0</p>
+                                        </div>
+
+                                         <h3>adcCfg :</h3>
+                                        <div class="form-group">
+                                            <label>&lt;numADCBits&gt;</label>
+                                            <input class="form-control" value="2">
+                                            <p class="help-block">Number of ADC bits : 0 for 12 bits, 1 for 14 bits, 2 for 16 bits. Only 16 bits are supported for 14xx and 16xx. </p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>&lt;adcOutputFmt&gt;</label>
+                                            <input class="form-control" value="1">
+                                            <p class="help-block">Output format : 0 for real, 1 for complex (image band filtered output), 2 for complex (image band visible). Only complex modes are supported for 14xx and 16xx. </p>
+                                        </div>
+
+
+
+                                        <h3>adcbufCfg :</h3>
+                                        <div class="form-group">
+                                            <label>&lt;subFrameIdx&gt;</label>
+                                            <input class="form-control" value="--">
+                                            <p class="help-block">Not exist for 14xx, set to -1 for 16xx.</p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>&lt;adcOutputFmt&gt;</label>
+                                            <input class="form-control" value="0">
+                                            <p class="help-block">ADCBUF output format : 0 for complex, 1 for real. Only complex mode for 14xx and 16xx.</p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>&lt;SampleSwap&gt;</label>
+                                            <input class="form-control" value="1">
+                                            <p class="help-block">ADCBUF IQ swap selection : 0 for I in LSB and Q in MSB, 1 for Q in LSB and I in MSB. Only 0 for 14xx and 16xx.</p>
+                                        </div>
+
+
+
+                                        <div class="form-group">
+                                            <label>&lt;ChanInterleave&gt;</label>
+                                            <input class="form-control" value="0">
+                                            <p class="help-block">ADCBUF channel interleave config : 0 for interleaved, 1 for non-interleaved. Only 0 for 14xx, only 1 for 16xx.</p>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label>&lt;ChirpThreshold&gt;</label>
+                                            <input class="form-control" value="1">
+                                            <p class="help-block">Chirp threshold configuration used for ADCBUF buffer to trigger ping/pong buffer switch. Valid values : only 1 for 14xx, 0-8 for 16xx.</p>
+                                        </div>
+
+
+
+                                        <h3>profileCfg :</h3>
+                                        <div class="form-group">
+                                            <label>&lt;profileId&gt;</label>
+                                            <input class="form-control" value="0">
+                                            <p class="help-block">Profile Identifier.</p>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label>&lt;startFreq&gt;</label>
+                                            <input class="form-control" value="77">
+                                            <p class="help-block">Frequency Start in GHz (float).</p>
+                                        </div>
+
+
+
+                                        <div class="form-group">
+                                            <label>&lt;idleTime&gt;</label>
+                                            <input class="form-control" value="7">
+                                            <p class="help-block">Idle time in us (float).</p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>&lt;adcStartTime&gt;</label>
+                                            <input class="form-control" value="7">
+                                            <p class="help-block">ADC valid start time in us (float).</p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>&lt;rampEndTime&gt;</label>
+                                            <input class="form-control" value="58">
+                                            <p class="help-block">Ramp end time in us (float).</p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>&lt;txOutPower&gt;</label>
+                                            <input class="form-control" value="0">
+                                            <p class="help-block">Tx output power back-off code for tx antennas. Only 0 has been tested.</p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>&lt;txPhaseShifter&gt;</label>
+                                            <input class="form-control" value="0">
+                                            <p class="help-block">Tx phase shifter for tx antennas. Only 0 has been tested.</p>
+                                        </div>
+
+                                         <div class="form-group">
+                                            <label>&lt;freqSlopeConst&gt;</label>
+                                            <input class="form-control" value="68">
+                                            <p class="help-block">Frequency slope for the chirp. Must be greater than 0.</p>
+                                        </div>
+
+
+                                         <div class="form-group">
+                                            <label>&lt;txStartTime&gt;</label>
+                                            <input class="form-control" value="1">
+                                            <p class="help-block">Tx Start Time in us (float).</p>
+                                        </div>
+
+
+                                         <div class="form-group">
+                                            <label>&lt;numAdcSamples&gt;</label>
+                                            <input class="form-control" value="225">
+                                            <p class="help-block">Number of ADC samples collected during "ADC Sampling Time". </p>
+                                        </div>
+
+
+                                         <div class="form-group">
+                                            <label>&lt;digOutSampleRate&gt;</label>
+                                            <input class="form-control" value="4500">
+                                            <p class="help-block">Frequency slope for the chirp. Must be greater than 0.</p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>&lt;hpfCornerFreq1&gt;</label>
+                                            <input class="form-control" value="0">
+                                            <p class="help-block">HPF1 ("High Pass Filter 1") corner. 0 for 175kHz, 1 for 235kHz, 2 for 350kHz, 3 for 700kHz.</p>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label>&lt;hpfCornerFreq2&gt;</label>
+                                            <input class="form-control" value="0">
+                                            <p class="help-block">HPF2 ("High Pass Filter 2") corner. 0 for 350kHz, 1 for 700kHz, 2 for 1.4MHz, 3 for 2.8MHz.</p>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label>&lt;rxGain&gt;</label>
+                                            <input class="form-control" value="30">
+                                            <p class="help-block">Rx gain in dB (valid values 24 to 48).</p>
+                                        </div>
+
+
+
+                                        <h3>chirpCfg :</h3>
+                                        <div class="form-group">
+                                            <label>&lt;chirpStartIndex&gt;</label>
+                                            <input class="form-control" value="0">
+                                            <p class="help-block"></p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>&lt;chirpEndIndex&gt;</label>
+                                            <input class="form-control" value="0">
+                                            <p class="help-block"></p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>&lt;profileIdentifier&gt;</label>
+                                            <input class="form-control" value="0">
+                                            <p class="help-block">Should match with the previous profileID.</p>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label>&lt;startFrequencyVariation&gt;</label>
+                                            <input class="form-control" value="0">
+                                            <p class="help-block">Start Frequency variation in Hz. Only 0 has been tested.</p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>&lt;frequencySlopeVariation&gt;</label>
+                                            <input class="form-control" value="0">
+                                            <p class="help-block">Frequency slope variation in Hz. Only 0 has been tested.</p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>&lt;idleTimeVariation&gt;</label>
+                                            <input class="form-control" value="0">
+                                            <p class="help-block">Idle time variation in us. Only 0 has been tested.</p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>&lt;AdcStartTimeVariation&gt;</label>
+                                            <input class="form-control" value="0">
+                                            <p class="help-block">ADC start time variation in us. Only 0 has been tested.</p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>&lt;txAntennaEnableMask&gt;</label>
+                                            <input class="form-control" value="1">
+                                            <p class="help-block">Tx antenna enable mask. </p>
+                                        </div>
+
+<!--      
+                                        <div class="form-group">
+                                            <label>&lt;txAntennaEnableMask&gt;</label>
+                                            <input class="form-control" value="4">
+                                            <p class="help-block">Tx antenna enable mask. </p>
+                                        </div>
+
+-->
+                                        <h3>frameCfg :</h3>
+                                        <div class="form-group">
+                                            <label>&lt;chirpStartIndex&gt;</label>
+                                            <input class="form-control" value="0">
+                                            <p class="help-block">Chirp start index 0-511. </p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>&lt;chirpEndIndex&gt;</label>
+                                            <input class="form-control" value="1">
+                                            <p class="help-block">Chirp end index : chirp start index-511. </p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>&lt;loopNumber&gt;</label>
+                                            <input class="form-control" value="16">
+                                            <p class="help-block">Number of loops (1 to 255). </p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>&lt;frameNumber&gt;</label>
+                                            <input class="form-control" value="0">
+                                            <p class="help-block">Number of frames (0 to 65535, 0 means infinite). </p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>&lt;framePeriodicity&gt;</label>
+                                            <input class="form-control" value="100">
+                                            <p class="help-block">Frame periodicity in ms. </p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>&lt;triggerSelect&gt;</label>
+                                            <input class="form-control" value="1">
+                                            <p class="help-block">1 : Software trigger, 2 : Hardware trigger. </p>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label>&lt;frameTriggerDelay&gt;</label>
+                                            <input class="form-control" value="0">
+                                            <p class="help-block">1 : Frame trigger delay in ms. </p>
+                                        </div>
+
+
+                                        <h3>guiMonitor :</h3>
+                                         <div class="form-group">
+                                            <label>&lt;subFrameIdx&gt;</label>
+                                            <input class="form-control" value="--">
+                                            <p class="help-block">Subframe index (exists only in 16xx).</p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>&lt;detectedObject&gt;</label>
+                                            <input class="form-control" value="1">
+                                            <p class="help-block">0 : disable, 1 : enable.</p>
+                                        </div>
+
+                                         <div class="form-group">
+                                            <label>&lt;lowMagnitudeRange&gt;</label>
+                                            <input class="form-control" value="1">
+                                            <p class="help-block">0 : disable, 1 : enable.</p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>&lt;noiseProfile&gt;</label>
+                                            <input class="form-control" value="1">
+                                            <p class="help-block">0 : disable, 1 : enable.</p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>&lt;rangeAzimuthHeatMap&gt;</label>
+                                            <input class="form-control" value="0">
+                                            <p class="help-block">0 : disable, 1 : enable.</p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>&lt;rangeDopplerHeatMap&gt;</label>
+                                            <input class="form-control" value="0">
+                                            <p class="help-block">0 : disable, 1 : enable.</p>
+                                        </div>
+
+                                         <div class="form-group">
+                                            <label>&lt;statsInfo&gt;</label>
+                                            <input class="form-control" value="1">
+                                            <p class="help-block">0 : disable, 1 : enable.</p>
+                                        </div>
+
+                                        <h3>cfarCfg :</h3>
+                                         <div class="form-group">
+                                            <label>&lt;subFrameIdx&gt;</label>
+                                            <input class="form-control" value="--">
+                                            <p class="help-block">Subframe index (exists only in 16xx).</p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>&lt;procDirection&gt;</label>
+                                            <input class="form-control" value="0">
+                                            <p class="help-block">Processing direction: 0 for CFAR detection in range direction, 1 for CFAR detection in Doppler direction.</p>
+                                        </div>
+
+                                         <div class="form-group">
+                                            <label>&lt;mode&gt;</label>
+                                            <input class="form-control" value="2">
+                                            <p class="help-block">CFAR averaging mode: 0 for CFAR_CA, 1 for CFAR_CAGO, 2 for CFAR_CASO.</p>
+                                        </div>
+
+                                         <div class="form-group">
+                                            <label>&lt;noseWin&gt;</label>
+                                            <input class="form-control" value="8">
+                                            <p class="help-block">Length of the noise averaged cells in samples.</p>
+                                        </div>
+
+                                         <div class="form-group">
+                                            <label>&lt;guardLen&gt;</label>
+                                            <input class="form-control" value="4">
+                                            <p class="help-block">Guard length in samples.</p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>&lt;divShift&gt;</label>
+                                            <input class="form-control" value="3">
+                                            <p class="help-block"></p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>&lt;cyclicOrWrappedAroundMode&gt;</label>
+                                            <input class="form-control" value="0">
+                                            <p class="help-block">Cyclic or wrapped around mode. 0 : disabled, 1 : enabled.</p>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label>&lt;thresholdScale&gt;</label>
+                                            <input class="form-control" value="1200">
+                                            <p class="help-block"></p>
+                                        </div>
+
+
+                                        <h3>peakGrouping :</h3>
+                                        <div class="form-group">
+                                            <label>&lt;subFrameIdx&gt;</label>
+                                            <input class="form-control" value="--">
+                                            <p class="help-block">Only in 16xx.</p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>&lt;scheme&gt;</label>
+                                            <input class="form-control" value="1">
+                                            <p class="help-block"></p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>&lt;PGRangeDirection&gt;</label>
+                                            <input class="form-control" value="1">
+                                            <p class="help-block">Peak grouping in range direction.</p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>&lt;PGDoppler&gt;</label>
+                                            <input class="form-control" value="1">
+                                            <p class="help-block">Peak grouping in Doppler.</p>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label>&lt;startRangeIndex&gt;</label>
+                                            <input class="form-control" value="1">
+                                            <p class="help-block"></p>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label>&lt;endRangeIndex&gt;</label>
+                                            <input class="form-control" value="224">
+                                            <p class="help-block"></p>
+                                        </div>
+
+
+
+
+                                        <h3>multiObjBeamForming :</h3>
+                                        <div class="form-group">
+                                            <label>&lt;subFrameIdx&gt;</label>
+                                            <input class="form-control" value="--">
+                                            <p class="help-block">Only in 16xx.</p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>&lt;featureEnabled&gt;</label>
+                                            <input class="form-control" value="1">
+                                            <p class="help-block">0 : disabled, 1 : enabled.</p>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label>&lt;threshold&gt;</label>
+                                            <input class="form-control" value="0.5">
+                                            <p class="help-block">0 to 1.</p>
+                                        </div>
+
+
+                                        <h3>calibDcRangeSig :</h3>
+                                        <div class="form-group">
+                                            <label>&lt;subFrameIdx&gt;</label>
+                                            <input class="form-control" value="--">
+                                            <p class="help-block">Only in 16xx.</p>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label>&lt;enabled&gt;</label>
+                                            <input class="form-control" value="0">
+                                            <p class="help-block"></p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>&lt;negativeBinIdx&gt;</label>
+                                            <input class="form-control" value="-5">
+                                            <p class="help-block"></p>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label>&lt;positiveBinIdx&gt;</label>
+                                            <input class="form-control" value="8">
+                                            <p class="help-block"></p>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label>&lt;numAvg&gt;</label>
+                                            <input class="form-control" value="224">
+                                            <p class="help-block"></p>
+                                        </div>
+
+                                        <h3>clutterRemoval :</h3>
+                                        <div class="form-group">
+                                            <label>&lt;enabled&gt;</label>
+                                            <input class="form-control" value="0">
+                                            <p class="help-block"></p>
+                                        </div>
+
+
+                                        <h3>compRangeBiasAndRxChanPhase :</h3>
+                                        <div class="form-group">
+                                            <label>&lt;rangeBias&gt;</label>
+                                            <input class="form-control" value="0.0">
+                                            <p class="help-block">Compensation for  rangee stimation bias in meters.</p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>&lt;complexValueSet&gt;</label>
+                                            <input class="form-control" value="1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0">
+                                            <p class="help-block">Compensation for  rangee stimation bias in meters.</p>
+                                        </div>
+
+                                        <h3>measureRangeBiasAndRxChanPhase :</h3>
+                                        <div class="form-group">
+                                            <label>&lt;enabled&gt;</label>
+                                            <input class="form-control" value="0.0">
+                                            <p class="help-block"></p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>&lt;targetDistance&gt;</label>
+                                            <input class="form-control" value="1.5">
+                                            <p class="help-block"></p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>&lt;searchWin&gt;</label>
+                                            <input class="form-control" value="0.2">
+                                            <p class="help-block"></p>
+                                        </div>
+
+
+                                        <h3>CQRxSatMonitor :</h3>
+                                         <div class="form-group">
+                                            <label>&lt;profileId&gt;</label>
+                                            <input class="form-control" value="0">
+                                            <p class="help-block">Must match with the previous one.</p>
+                                        </div>
+
+
+                                         <div class="form-group">
+                                            <label>&lt;satMonSel&gt;</label>
+                                            <input class="form-control" value="3">
+                                            <p class="help-block"></p>
+                                        </div>
+
+
+                                         <div class="form-group">
+                                            <label>&lt;priSliceDuration&gt;</label>
+                                            <input class="form-control" value="4">
+                                            <p class="help-block"></p>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label>&lt;numSlices&gt;</label>
+                                            <input class="form-control" value="127">
+                                            <p class="help-block"></p>
+                                        </div>
+
+
+                                         <div class="form-group">
+                                            <label>&lt;rxChanMask&gt;</label>
+                                            <input class="form-control" value="0">
+                                            <p class="help-block"></p>
+                                        </div>
+
+
+                                        <h3>CQSigImgMonitor :</h3>
+                                         <div class="form-group">
+                                            <label>&lt;profileId&gt;</label>
+                                            <input class="form-control" value="0">
+                                            <p class="help-block">Must match with the previous one.</p>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label>&lt;numSlices&gt;</label>
+                                            <input class="form-control" value="111">
+                                            <p class="help-block"></p>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label>&lt;numSamplePerSlice&gt;</label>
+                                            <input class="form-control" value="4">
+                                            <p class="help-block"></p>
+                                        </div>
+
+
+                                        <h3>analogMonitor :</h3>
+                                         <div class="form-group">
+                                            <label>&lt;rxSaturation&gt;</label>
+                                            <input class="form-control" value="1">
+                                            <p class="help-block">0 : Disable, 1 : Enable.</p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>&lt;sigImgBand&gt;</label>
+                                            <input class="form-control" value="1">
+                                            <p class="help-block">0 : Disable, 1 : Enable.</p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Load Profile</label>
+                                            <input type="file">
+                                        </div>
+
+                                        <button type="submit" class="btn btn-default">Save Profile</button>
+                                            
+
+                                    </form>
+                                </div>
+                                <!-- /.col-lg-6 (nested) -->
+
+                                <div class="col-lg-6">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading"> Profilex.cfg 
+                                        </div>
+                                        <div class="panel-body">
+                                            <p> Affichage du contenu de profile.cfg
+                                        </div>
+                                    </div>
+                                </div>
+
+                                
+
+                                  <!-- /.col-lg-6 (nested) -->
+                            </div>
+                            <!-- /.row (nested) -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../dist/js/sb-admin-2.js"></script>
+
+</body>
+
+</html>
