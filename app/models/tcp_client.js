@@ -5,6 +5,7 @@ var address = '192.168.0.107';
 //var address = '172.20.10.5';
 var port_radar = 3000;
 var port_PIR = 3500;
+var port_com = 4698;
 /*var net = require('net');
 
 var server = net.createServer(function(socket) {
@@ -19,12 +20,21 @@ var net = require('net');
 
 var client_radar = new net.Socket();
 var client_PIR = new net.Socket();
+var client_com = new net.Socket();
 
 //client.bytesRead = 2;
+// Communication client to rPi :
+client_com.connect(port_radar, address, function() {
+	console.log('Connected');
+	//	START APPLICATION CLIENT
+	client_com.write('START');
+});
+
 
 // Connexion RADAR :
 client_radar.connect(port_radar, address, function() {
 	console.log('Connected');
+	//	START APPLICATION CLIENT
 	client_radar.write('Hello, server! Love, Client.');
 });
 
@@ -72,6 +82,7 @@ client_radar.on('data', function(data) {
 	if (data == "END") {
 		client_radar.destroy();
 		client_PIR.destroy(); //On arrête le PIR lorsque le radar a fini.
+		client_com.destroy();
 	}
 });
 
@@ -95,5 +106,10 @@ client_PIR.on('data', function(data) {
 });
 
 client_PIR.on('close', function() {
+	console.log('Connection closed');
+});
+
+// Fermeture connexion client
+client_com.on('close', function() {
 	console.log('Connection closed');
 });
