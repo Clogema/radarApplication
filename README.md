@@ -10,6 +10,7 @@ Une détection représente un objet détecté
 {
   "x": "valeur",
   "y": "valeur",
+  "z": "valeur",
   "peakValue": "valeur",
   "rangeIdx": "valeur",
   "dopplerIdx": "valeur"
