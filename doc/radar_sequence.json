@@ -11,11 +11,7 @@
                     "dopplerIdx": "valeur"
                 },
                 {
-                    "x": "valeur",
-                    "y": "valeur",
-                    "peakValue": "valeur",
-                    "rangeIdx": "valeur",
-                    "dopplerIdx": "valeur"
+                    ...
                 },
                 {
                     "x": "valeur",
@@ -25,6 +21,9 @@
                     "dopplerIdx": "valeur"
                 }
             ]
+        },
+        {
+            ... 
         },
         {
             "timestamp": "valeur",
@@ -37,37 +36,7 @@
                     "dopplerIdx": "valeur"
                 },
                 {
-                    "x": "valeur",
-                    "y": "valeur",
-                    "peakValue": "valeur",
-                    "rangeIdx": "valeur",
-                    "dopplerIdx": "valeur"
-                },
-                {
-                    "x": "valeur",
-                    "y": "valeur",
-                    "peakValue": "valeur",
-                    "rangeIdx": "valeur",
-                    "dopplerIdx": "valeur"
-                }
-            ]
-        },
-        {
-            "timestamp": "valeur",
-            "data": [
-                {
-                    "x": "valeur",
-                    "y": "valeur",
-                    "peakValue": "valeur",
-                    "rangeIdx": "valeur",
-                    "dopplerIdx": "valeur"
-                },
-                {
-                    "x": "valeur",
-                    "y": "valeur",
-                    "peakValue": "valeur",
-                    "rangeIdx": "valeur",
-                    "dopplerIdx": "valeur"
+                    ...
                 },
                 {
                     "x": "valeur",
