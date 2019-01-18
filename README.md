@@ -18,7 +18,7 @@ Une détection représente un objet détecté
 
 ### Paquet
 
-Un paquet représente un d'objet détecté pour un timestamp donné
+Un paquet représente un ensemble d'objets détectés pour un timestamp donné *(500ms)*
 
 - début du paquet : **sensorStart()**
 - fin du paquet : **sensorStop()**
