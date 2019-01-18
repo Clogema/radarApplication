@@ -25,9 +25,12 @@ router.get('/', function(req, res) {
 });
 
 // more routes for our API will happen here
-router.get('/graph', function (req, res) {
+router.get('/name', function (req, res) {
    // Prepare output in JSON format
-   rep = test1;
+   rep = {
+       "name": "Anthonioz",
+       "surname": "Lisa"
+   };
    console.log(rep);
    res.json(rep);
 })

@@ -1,0 +1,26 @@
+{
+  "timestamp": "valeur",
+  "data": [
+    {
+      "x": "valeur",
+      "y": "valeur",
+      "peakValue": "valeur",
+      "rangeIdx": "valeur",
+      "dopplerIdx": "valeur"
+    },
+    {
+      "x": "valeur",
+      "y": "valeur",
+      "peakValue": "valeur",
+      "rangeIdx": "valeur",
+      "dopplerIdx": "valeur"
+    },
+    {
+      "x": "valeur",
+      "y": "valeur",
+      "peakValue": "valeur",
+      "rangeIdx": "valeur",
+      "dopplerIdx": "valeur"
+    }
+  ]
+}
